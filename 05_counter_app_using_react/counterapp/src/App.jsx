@@ -6,19 +6,19 @@ function App() {
   let [counter, setCounter] = useState(0);
 
   function incrementCounter() {
-    if(counter>=10){
+    if (counter >= 10) {
 
       alert("Counter can not be greator then 10")
-    }else{
+    } else {
 
       counter++;
       setCounter(counter);
     }
   }
   function decrementCounter() {
-    if(counter<=0){
+    if (counter <= 0) {
       alert("Counter can not be less then 0")
-    }else{
+    } else {
 
       counter--;
       setCounter(counter);
