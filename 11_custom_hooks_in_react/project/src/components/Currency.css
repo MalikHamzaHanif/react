@@ -1,0 +1,11 @@
+#top {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
+
+#bottom {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
