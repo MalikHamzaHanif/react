@@ -13,6 +13,13 @@ function Header() {
                 <li>
                     <NavLink to={"/contact"} className={({isActive}) => `${isActive ? "text-orange" : "text-black"}`} >Contact</NavLink>
                 </li>
+                <li>
+                    <NavLink to={"/user"} className={({isActive}) => `${isActive ? "text-orange" : "text-black"}`} >Users</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/github"} className={({isActive}) => `${isActive ? "text-orange" : "text-black"}`} >GitHub</NavLink>
+                </li>
+             
 
             </ul>
         </div>
