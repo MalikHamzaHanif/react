@@ -16,6 +16,11 @@
 
 # Local environment files
 **/*.local
+**/.env            # Ignore all .env files
+**/.env.*          # Ignore all .env.* files (like .env.production, .env.development)
+
+# Git ignore files inside any folder
+**/.gitignore
 
 # Editor directories and files
 **/.vscode/
