@@ -18,7 +18,8 @@ function App() {
           dispatch(login({
             userData: {
               email: userData.data.data.email,
-              userId: userData.data.data.userId
+              userId: userData.data.data.userId,
+              name:userData.data.data.name
             }
           }))
         } else {

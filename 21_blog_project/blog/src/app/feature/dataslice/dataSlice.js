@@ -8,8 +8,11 @@ const blogSlice = createSlice({
     reducers: {
         getBlogs: (state, action) => {
             state.blogs = action.payload.blogs
+        },
+        removeBlogs:(state)=>{
+            state.blogs=[]
         }
     }
 });
-export const { getBlogs } = blogSlice.actions
+export const { getBlogs,removeBlogs } = blogSlice.actions
 export default blogSlice.reducer

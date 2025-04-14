@@ -21,7 +21,8 @@ function Signin() {
       if (user?.success === true) {
         dispatch(login({userData:{
           email:user.data.data.email,
-          userId:user.data.data.userId
+          userId:user.data.data.userId,
+          name:user.data.data.name
         }}))
         localStorage.setItem("x-auth-token",`Bearer ${user.data.data.token}`)
       } else {
@@ -72,6 +73,7 @@ function Signin() {
           Sign In
         </button>
       </form>
+      <button  className="mt-4 px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition duration-300" onClick={()=>{loginUser({email:"demouser@demo.com","password":"demo"})}}>Demo User</button>
     </div>
   );
 }

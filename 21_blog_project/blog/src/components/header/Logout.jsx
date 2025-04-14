@@ -2,6 +2,7 @@ import React from 'react';
 import { logout } from "../../app/feature/authslice/authSlice";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { removeBlogs } from '../../app/feature/dataslice/dataSlice';
 
 function Logout() {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function Logout() {
   function logoutUser() {
     localStorage.removeItem("x-auth-token")
     dispatch(logout());
+    dispatch(removeBlogs())
     navigate("/login");
   }
 

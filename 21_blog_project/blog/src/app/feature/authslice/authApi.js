@@ -20,6 +20,30 @@ async function signUp(data) {
         return null
     }
 }
+async function updateClient(data) {
+    try {
+        const token = localStorage.getItem("x-auth-token")
+        if (!token) {
+            return null;
+        }
+        const res = await fetch(`${conf.authUrl}/`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "authorization":token
+            },
+            body: JSON.stringify(data)
+        })
+        const userData = await res.json()
+
+        return userData
+
+    } catch (error) {
+        console.log("error while updating user");
+        console.log(error);
+        return null
+    }
+}
 async function logIn(data) {
     try {
         const res = await fetch(`${conf.authUrl}/login`, {
@@ -41,6 +65,7 @@ async function logIn(data) {
 }
 async function getUserData() {
     try {
+        
         const token = localStorage.getItem("x-auth-token")
         if (!token) {
             return null;
@@ -62,4 +87,4 @@ async function getUserData() {
     }
 }
 
-export { getUserData, logIn, signUp }
+export { getUserData, logIn, signUp,updateClient }

@@ -1,13 +1,17 @@
+import { useSearchParams } from "react-router-dom";
 import conf from "../../../conf/conf"
 
 
-async function getAllBlogs() {
+async function getAllBlogs(searchParams) {
     try {
+       
         const token = localStorage.getItem("x-auth-token")
         if (!token) {
             return null;
         }
-        const res = await fetch(`${conf.blogUrl}`, {
+        console.log("here are search params inside datapi",searchParams);
+        
+        const res = await fetch(`${conf.blogUrl}${searchParams?searchParams:""}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +88,7 @@ async function postBlog(data) {
 }
 
 
-/////////////////
+
 
 async function updateBlog(data, blogId) {
     try {
@@ -102,11 +106,9 @@ async function updateBlog(data, blogId) {
 
         })
         const blogData = await res.json()
-        if (blogData.success === true) {
+     
             return blogData
-        } else {
-            return null
-        }
+       
     } catch (error) {
         console.log("error while getting user data");
         console.log(error);
@@ -129,11 +131,8 @@ async function deleteBlog(blogId) {
 
         })
         const blogData = await res.json()
-        if (blogData.success === true) {
+     
             return blogData
-        } else {
-            return null
-        }
     } catch (error) {
         console.log("error while getting user data");
         console.log(error);

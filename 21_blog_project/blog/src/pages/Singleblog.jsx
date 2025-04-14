@@ -48,6 +48,8 @@ function Singleblog() {
         try {
             setLoading(true)
             const blogData = await updateBlog(data, id)
+           
+            
             if (blogData.success === true) {
                 const { title, content, category } = blogData.data.data;
                 setTitle(title)
@@ -55,9 +57,11 @@ function Singleblog() {
                 setcategory(category)
                 setResMsg(blogData.data.msg)
             } else {
-                setResMsg(blogData.data.msg)
+                setResMsg(blogData.err.msg)
             }
         } catch (error) {
+            console.log(error);
+            
             setResMsg("Failed to update blog")
         } finally {
             setLoading(false)
@@ -72,7 +76,7 @@ function Singleblog() {
             if (blogData.success === true) {
                 navigate("/allblogs")
             } else {
-                setResMsg(blogData.data.msg)
+                setResMsg(blogData.err.msg)
             }
         } catch (error) {
             setResMsg("Blog Deletion failed")

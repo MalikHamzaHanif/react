@@ -14,6 +14,7 @@ import Protected from './components/Protected.jsx'
 import { Provider } from 'react-redux'
 import store from "./app/store/store.js"
 import Createblogpage from './pages/Createblogpage.jsx'
+import Userprofile from './pages/Userprofile.jsx'
 const router = createBrowserRouter([
     {
         path: "/",
@@ -59,6 +60,12 @@ const router = createBrowserRouter([
                 path: "/createblog",
                 element: <Protected authentication={true}>
                     <Createblogpage />
+                </Protected>
+            },
+            {
+                path: "/profile",
+                element: <Protected authentication={true}>
+                    <Userprofile />
                 </Protected>
             },
         ]

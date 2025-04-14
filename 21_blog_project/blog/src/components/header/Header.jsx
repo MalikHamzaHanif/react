@@ -14,6 +14,7 @@ function Header() {
     { name: "Login", slug: "/login", auth: !isAuth },
     { name: "All Blogs", slug: "/allblogs", auth: isAuth },
     { name: "Create Blog", slug: "/createblog", auth: isAuth },
+    { name: "Profile", slug: "/profile", auth: isAuth },
   ];
 
   return (
